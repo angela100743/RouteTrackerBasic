@@ -11,7 +11,7 @@ const IndvRouteScreen = () => {
     
     useLayoutEffect(() => {
         navigation.setOptions({
-            headerTitle: "route title",
+            headerTitle: title,
             headerLeft: () => (
                 <HeaderBackButton
                 tintColor="white"

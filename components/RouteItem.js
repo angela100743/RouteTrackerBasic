@@ -8,7 +8,7 @@ const RouteItem = ({id, title, date_added, distance, duration}) => {
         <TouchableOpacity style={styles.card} onPress={()=>navigation.navigate("IndvRoute",{routeId:id, title, date_added, duration, distance})}>
             <Text>{title}</Text>
             <Text>{date_added}</Text>
-            <Text>{distance}</Text>
+            <Text>{distance} km</Text>
             <Text>{duration}</Text>
         </TouchableOpacity>
     );

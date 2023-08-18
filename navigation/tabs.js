@@ -2,6 +2,7 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import RouteScreen from '../screens/RouteScreen';
 import ProfileScreen from '../screens/ProfileScreen';
 import { Ionicons } from '@expo/vector-icons';
+import TrackingScreen from '../screens/TrackingScreen';
 
 const Tab = createBottomTabNavigator();
 // These BottomTabs can be created for different stacks.
@@ -20,7 +21,7 @@ export const BottomTabs = () => {
                 if (route.name === 'RouteScreen') {
                     iconName = focused ? 'home' : 'home-outline'
                 }
-                else if (route.name === 'ProfileScreen') {
+                else if (route.name === 'TrackingScreen') {
                     iconName = focused ? 'navigate-circle' : 'navigate-circle-outline'
                 }
 
@@ -29,7 +30,7 @@ export const BottomTabs = () => {
         })}
     >
             <Tab.Screen name="RouteScreen" component={RouteScreen} options = {{title:'My Saved Routes'}}/>
-            <Tab.Screen name="ProfileScreen" component={ProfileScreen} options = {{title:'Profile'}}/>
+            <Tab.Screen name="TrackingScreen" component={TrackingScreen} options = {{title:'Tracking'}}/>
         </Tab.Navigator>
     );
 }

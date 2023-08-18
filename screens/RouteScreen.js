@@ -4,14 +4,34 @@ import { useNavigation } from '@react-navigation/native';
 import RouteList from '../components/RouteList';
 
 const RouteScreen = () => {
-    const navigation = useNavigation()
-    return (
+    const [data, setData] = useState([])
+    useEffect(()=> {
+        fetchData()
+    },[]);
+
+    const fetchData = async () => {
+        try {
+            const response = await fetch('http://127.0.0.1:8000/routetracker/route-data/');
+            console.log('Status Code:', response.status);
+            console.log('Status Text:', response.statusText);   
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            const jsonData = await response.json();
+            setData(jsonData);
+        } catch (error) {
+            console.error('Error fetching data:', error);
+        }
+    };
+    return (  
         <View style={styles.screen}>
-            <RouteList />
-            <Button title="Go to IndvRoute" onPress={() => navigation.navigate('IndvRoute')} />
+            <RouteList data={data}/>
+            {/* <Text>This is the home screen</Text>
+            <Button title="move to LOGO" onPress={()=>navigation.navigate('Logo')} /> */}
         </View>
     );
-};
+}
+
 
 const styles = StyleSheet.create({
     screen: {
