@@ -1,3 +1,5 @@
+import 'react-native-gesture-handler'
+import { NavigationContainer } from '@react-navigation/native';
 import { StatusBar } from 'expo-status-bar';
 import { useState } from 'react';
 import { 
@@ -11,6 +13,7 @@ import {
   ScrollView,
   TouchableOpacity,
 } from 'react-native';
+import { MyDrawer } from './navigation/drawer';
 
 export default function App() {
   const [text, setText] = useState("");
@@ -18,39 +21,11 @@ export default function App() {
     setText(newText);
   }
   return (
-    <SafeAreaView>
-      <Text>Hi</Text> 
-      <ScrollView>
-        <View style={styles.pinkContainer}>
-          <TextInput
-            defaultValue={text}
-            onChangeText={text => setText(text)}
-            style={{borderWidth: 1, borderColor: 'black', padding: 10, marginBottom: 20}}
-          />
-          <Button title="Press me" onPress={() => console.log('Simple Button pressed')} />
-          <TouchableOpacity style={styles.btn} onPress={() => console.log('Simple Button pressed')}>
-            <Text style={{color: 'white'}}>Press me too</Text>
-          </TouchableOpacity>
-        </View>
-      </ScrollView>
-      <StatusBar style="dark" />
-    </SafeAreaView>
+    <NavigationContainer>
+      <MyDrawer />
+      <StatusBar style="light" />
+    </NavigationContainer>
   );
 }
 
-const styles = StyleSheet.create({
-  pinkContainer: {
-    backgroundColor:'pink', 
-    height: 1600, 
-    padding: 20
-  },
 
-  btn: {
-    padding: 10, 
-    backgroundColor: 'purple', 
-    width: 150, height: 100, 
-    justifyContent:'center', 
-    alignItems:'center'
-  },
-
-})
