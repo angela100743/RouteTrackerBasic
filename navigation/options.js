@@ -1,5 +1,6 @@
-import {Ionicons} from "@expo/vector-icons";
-import {Text} from "react-native";
+import { Ionicons } from "@expo/vector-icons";
+import { Image}  from "react-native";
+
 
 export const navOptions = (nav) => {
     return {
@@ -16,7 +17,11 @@ export const navOptions = (nav) => {
             />
         ),
         headerLeft: () => (
-            <Text style={{color:'white', fontSize:20, paddingLeft:5}}>Logo</Text>
+            <Image
+                style={{ marginLeft: 10, marginBottom: 5, width: 40, height: 40,resizeMode:'contain' }}
+                source={require("../assets/ktmtransitlogo-circle.png")}
+                            
+            />
         )
     }
 }
