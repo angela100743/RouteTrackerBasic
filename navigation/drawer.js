@@ -5,8 +5,11 @@ const Drawer = createDrawerNavigator();
 
 export const MyDrawer = () => { 
     return (
-        <Drawer.Navigator>
-            <Drawer.Screen name="RouteStack" component={RouteStack} />
+        <Drawer.Navigator screenOptions={{headerShown: false}}>
+            <Drawer.Screen name="RouteStack" 
+                component={RouteStack} />  
+                {/* options={{title:"My Routes"}}  */}
+            
             {/* <Drawer.Screen name="Article" component={Article} /> */}
         </Drawer.Navigator>
     );
